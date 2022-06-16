@@ -29,7 +29,7 @@ public class Messaggio {
 	@Column(name = "dataLettura")
 	private Date dataLettura;
 	
-	@OneToOne(mappedBy = "messaggio", fetch = FetchType.LAZY, optional = false)
+	@OneToOne(fetch = FetchType.LAZY)
 	private RichiestePermesso richiestePermesso;
 	
 	public Long getId() {

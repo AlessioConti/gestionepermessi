@@ -37,7 +37,7 @@ public class RichiestePermesso {
 	private TipoPermesso tipoPermesso;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "attachement_id")
+	@JoinColumn(name = "attachment_id")
 	private Attachment attachment;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

@@ -3,10 +3,11 @@ package it.prova.gestionepermessi.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.prova.gestionepermessi.model.Ruolo;
 import it.prova.gestionepermessi.repository.RuoloRepository;
-
+@Service
 public class RuoloServiceImpl implements RuoloService {
 	
 	@Autowired

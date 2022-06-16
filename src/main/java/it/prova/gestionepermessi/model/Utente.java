@@ -39,9 +39,7 @@ public class Utente {
 	@JoinTable(name = "utente_ruolo", joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ruolo_id", referencedColumnName = "ID"))
 	private Set<Ruolo> ruoli = new HashSet<>(0);
 	
-	@NotNull
 	@OneToOne(mappedBy = "utente")
-    @JoinColumn(name = "dipendente_id")
 	private Dipendente dipendente;
 
 	public Utente() {
@@ -113,6 +111,14 @@ public class Utente {
 
 	public void setStato(StatoUtente stato) {
 		this.stato = stato;
+	}
+
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
 	}
 
 	public boolean isAdmin() {

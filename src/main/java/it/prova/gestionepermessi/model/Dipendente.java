@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -44,10 +45,44 @@ public class Dipendente {
 	private Sesso sesso;
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "utente_id", referencedColumnName = "id")
 	private Utente utente;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "dipendente")
 	private Set<RichiestePermesso> richiestePermessi = new HashSet<RichiestePermesso>(0);
+	
+	public Dipendente() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Dipendente(Long id, String nome, String cognome, String codiceFiscale, String email, Date dataNascita,
+			Date dataAssunzione, Date dataDimissioni, Sesso sesso, Utente utente,
+			Set<RichiestePermesso> richiestePermessi) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.codiceFiscale = codiceFiscale;
+		this.email = email;
+		this.dataNascita = dataNascita;
+		this.dataAssunzione = dataAssunzione;
+		this.dataDimissioni = dataDimissioni;
+		this.sesso = sesso;
+		this.utente = utente;
+		this.richiestePermessi = richiestePermessi;
+	}
+	
+	public Dipendente(String nome, String cognome, String codiceFiscale, String email, Date dataNascita,
+			Date dataAssunzione, Sesso sesso) {
+		super();
+		this.nome = nome;
+		this.cognome = cognome;
+		this.codiceFiscale = codiceFiscale;
+		this.email = email;
+		this.dataNascita = dataNascita;
+		this.dataAssunzione = dataAssunzione;
+		this.sesso = sesso;
+	}
 	
 	public Long getId() {
 		return id;

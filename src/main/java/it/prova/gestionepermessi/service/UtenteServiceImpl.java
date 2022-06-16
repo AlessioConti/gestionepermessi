@@ -125,4 +125,21 @@ public class UtenteServiceImpl implements UtenteService {
 			utenteInstance.setStato(StatoUtente.ATTIVO);
 	}
 
+	@Override
+	public Utente findByUsername(String username) {
+		return repository.findByUsername(username).orElse(null);
+	}
+
+	@Override
+	public void changeUserPassword(Long utenteInstanceId) {
+		Utente utenteInstance = caricaSingoloUtente(utenteInstanceId);
+		if(utenteInstance == null)
+			throw new RuntimeException("Elemento non trovato.");
+		
+		if(passwordEncoder.matches("Password@01", utenteInstance.getPassword()))
+			throw new RuntimeException("La password di questo utente è gia stata resettata di recente");
+		
+		utenteInstance.setPassword(passwordEncoder.encode("Password@01"));
+	}
+
 }

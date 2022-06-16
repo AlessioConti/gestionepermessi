@@ -15,9 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "dipendente")
+@Table(name = "dipendente", uniqueConstraints = @UniqueConstraint(columnNames = { "utente_id" }))
 public class Dipendente {
 
 	@Id
@@ -42,8 +43,9 @@ public class Dipendente {
 	@Enumerated(EnumType.STRING)
 	private Sesso sesso;
 	
-	@OneToOne(mappedBy = "dipendente", fetch = FetchType.LAZY, optional = false)
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	private Utente utente;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "dipendente")
 	private Set<RichiestePermesso> richiestePermessi = new HashSet<RichiestePermesso>(0);
 	

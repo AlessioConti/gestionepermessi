@@ -26,4 +26,8 @@ public interface UtenteService {
 	public Utente eseguiAccesso(String username, String password);
 	
 	public void changeUserAbilitation(Long utenteInstanceId);
+	
+	public Utente findByUsername(String username);
+	
+	public void changeUserPassword(Long utenteInstanceId);
 }

@@ -43,7 +43,7 @@
       	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
       		   <sec:authorize access="isAuthenticated()">
 			   <li class="nav-item dropdown ">
-		        <a class="nav-link dropdown-toggle " href="#" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${userInfo.nome} ${userInfo.cognome}</a>
+		        <a class="nav-link dropdown-toggle " href="#" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test Dropdown</a>
 		        <div class="dropdown-menu " aria-labelledby="dropdown01">
 		          <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Logout</a>
 		          <a class="dropdown-item"  href="${pageContext.request.contextPath}/reset">Reset Password</a>

@@ -40,12 +40,8 @@ public class RichiestePermesso {
 	@JoinColumn(name = "attachement_id")
 	private Attachment attachment;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "messaggio_id")
-	private Messaggio messaggio;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dipendente_id")
+	@JoinColumn(name = "dipendente_id", nullable = false)
 	private Dipendente dipendente;
 
 	public Long getId() {

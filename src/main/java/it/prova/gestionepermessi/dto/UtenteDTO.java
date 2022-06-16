@@ -6,12 +6,13 @@ import javax.validation.constraints.NotBlank;
 
 import it.prova.gestionepermessi.model.StatoUtente;
 import it.prova.gestionepermessi.model.Utente;
+import it.prova.gestionepermessi.validation.ValidationWithPassword;
 
 public class UtenteDTO {
 	private Long id;
-	@NotBlank(message = "{username.notblank}")
+	@NotBlank(message = "{username.notblank}", groups = ValidationWithPassword.class)
 	private String username;
-	@NotBlank(message = "{password.notblank}")
+	@NotBlank(message = "{password.notblank}", groups = ValidationWithPassword.class)
 	private String password;
 	private String confirmPassword;
 	private Date dateCreated;
